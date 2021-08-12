@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height:100%
+        }
+        body{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            width:120px;
+            height:120px;
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }  
+         
+        .btn{
+            margin:3px;
+            background: grey;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content:center;
+            border-radius:3px;
+            color:white;
+            font-size:3em;
+            font-family:sans-serif;
+        }
+
+        #win{
+            position:absolute;
+            top:2em;
+            left:50%;
+            transform:translateX(-50%)
+        }
+
+        #start{
+            position:absolute;
+            left:50px;
+            height:50px;
+            border:2px; color:solid red;
+            width:150px;
+            height:30px;
+            background:black;
+            color:white;
+            display:flex;
+            align-items: center;
+            border-radius: 5px;
+            justify-content: center;
+
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="btn" id="0"></div>
+        <div class="btn" id="1"></div>
+        <div class="btn" id="2"></div>
+        <div class="btn" id="3"></div>
+        <div class="btn" id="4"></div>
+        <div class="btn" id="5"></div>
+        <div class="btn" id="6"></div>
+        <div class="btn" id="7"></div>
+        <div class="btn" id="8"></div>
+    </div>
+    <h1 id="win"></h1>
+
+
+
+
+<script>
+    let what = true;
+
+    const btns = document.querySelectorAll('.btn');
+    const win= document .getElementById('win')
+  btns.forEach(btn => {
+      btn.addEventListener('click',(e) => kliknij(e))
+  })
+
+  function kliknij(e){
+    const cel = event.target;
+    
+    if(cel.innerText == ""){
+        let how = "O"
+    
+        if(what == true){
+            how = "O"
+        } else {
+            how = "X"
+        }
+    
+        what =!what;
+
+        cel.innerText = how;
+
+        check()
+    }
+  }
+
+  function check(){
+      
+    //wiersze 
+    if(btns[0].innerText !== ""
+    && btns[0].innerText == btns[1].innerText
+    && btns[1].innerText == btns[2].innerText){
+        win.innerText = "Gratulacje !!!, Wygrał " + btns[0].innerText;
+    };
+   
+    if(btns[3].innerText !== ""
+    && btns[3].innerText == btns[4].innerText
+    && btns[4].innerText == btns[5].innerText){
+         win.innerText = "Gratulacje !!!, Wygrał " + btns[3].innerText;
+    };
+
+    if(btns[6].innerText !== ""
+    && btns[6].innerText == btns[7].innerText
+    && btns[7].innerText == btns[8].innerText){
+         win.innerText = "Gratulacje !!!, Wygrał " + btns[6].innerText;
+    }
+
+    //kolumny
+    if(btns[0].innerText !== ""
+    && btns[0].innerText == btns[3].innerText
+    && btns[3].innerText == btns[6].innerText){
+         win.innerText = "Gratulacje !!!, Wygrał " + btns[0].innerText;
+    };
+   
+    if(btns[1].innerText !== ""
+    && btns[1].innerText == btns[5].innerText
+    && btns[5].innerText == btns[7].innerText){
+         win.innerText = "Gratulacje !!!, Wygrał " + btns[1].innerText;
+    };
+
+    if(btns[2].innerText !== ""
+    && btns[2].innerText == btns[5].innerText
+    && btns[5].innerText == btns[8].innerText){
+         win.innerText = "Gratulacje !!!, Wygrał " + btns[2].innerText;
+    }
+
+    //przekątne
+    if(btns[0].innerText !== ""
+    && btns[0].innerText == btns[4].innerText
+    && btns[4].innerText == btns[8].innerText){
+         win.innerText = "Gratulacje !!!, Wygrał " + btns[0].innerText;
+    };
+   
+    if(btns[2].innerText !== ""
+    && btns[2].innerText == btns[4].innerText
+    && btns[4].innerText == btns[8].innerText){
+         win.innerText = "Gratulacje !!!, Wygrał " + btns[2].innerText;
+    };
+
+  }
+</script>
+</body>
+</html>
