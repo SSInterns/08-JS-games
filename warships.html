@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        html, body{
+            height:100%;
+        }
+        body{
+            display:flex;
+            justify-content: center;
+            flex-direction:column;
+        }
+        .container{
+          display:flex;
+          justify-content: space-evenly;
+        }
+        .board-container{
+        }
+        .board{
+            width:220px;
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+        .cell{
+            border:1px solid grey;
+            width:22px;
+            height:22px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            color:lightgrey;
+            cursor:pointer;
+        }
+        .cell:hover{
+            outline:3px solid red;
+        }
+        h1{
+            text-align:center;
+        }
+        h4{
+            margin: 1em 0;
+        }
+        ul{
+            margin:2em 0;
+            list-style:none;
+        }
+    </style>
+    <script defer src="warships.js"></script>
+</head>
+<body>
+    <h1>WarShips</h1>
+    <h1><button id="startBtn">START</button></h1>
+    <div class="container">
+        <div class="board-container">
+            <h4>Player1</h4>
+            <div class="board" id="board1"></div>
+            <ul>
+                <li>4 X 1</li>
+                <li>3 X 2</li>
+                <li>2 X 3</li>
+                <li>1 X 4</li>
+            </ul>            
+        </div>
+        <div class="board-container">
+            <h4>Player2</h4>
+            <div class="board" id="board2"></div>       
+            <ul>
+                <li>4 X 1</li>
+                <li>3 X 2</li>
+                <li>2 X 3</li>
+                <li>1 X 4</li>
+            </ul>
+        </div>
+    </div>
+        <hr>    
+        <div class="container">
+        <div class="board-container">
+            <h4>Player1</h4>
+            <div class="board" id="board3"></div>
+            <ul>
+                <li>4 X 1</li>
+                <li>3 X 2</li>
+                <li>2 X 3</li>
+                <li>1 X 4</li>
+            </ul>            
+        </div>
+
+        <div class="board-container">
+            <h4>Player2</h4>
+            <div class="board" id="board4"></div>       
+            <ul>
+                <li>4 X 1</li>
+                <li>3 X 2</li>
+                <li>2 X 3</li>
+                <li>1 X 4</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
