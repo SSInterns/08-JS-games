@@ -53,6 +53,16 @@
             margin:2em 0;
             list-style:none;
         }
+        li{
+            display:flex;
+            border:2px solid grey;
+            margin:3px;
+            padding:3px;
+            border-radius:3px;
+        }
+        .off{
+            pointer-events:none;
+        }
     </style>
     <script defer src="warships.js"></script>
 </head>
@@ -64,20 +74,50 @@
             <h4>Player1</h4>
             <div class="board" id="board1"></div>
             <ul>
-                <li>4 X 1</li>
-                <li>3 X 2</li>
-                <li>2 X 3</li>
-                <li>1 X 4</li>
+                <li class="ship" id="1_4">
+                    4 X 1&nbsp;
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                </li>
+                <li class="ship" id="1_3">3 X 2
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                </li>
+                <li class="ship" id="1_2">2 X 3
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                </li>
+                <li class="ship" id="1_1">1 X 4
+                    <div class="off cell"></div>
+                </li>
             </ul>            
         </div>
         <div class="board-container">
             <h4>Player2</h4>
             <div class="board" id="board2"></div>       
             <ul>
-                <li>4 X 1</li>
-                <li>3 X 2</li>
-                <li>2 X 3</li>
-                <li>1 X 4</li>
+                <li class="ship" id="2_4">
+                    4 X 1&nbsp;
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                </li>
+                <li class="ship" id="2_3">3 X 2
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                </li>
+                <li class="ship" id="2_2">2 X 3
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                </li>
+                <li class="ship" id="2_1">1 X 4
+                    <div class="off cell"></div>
+                </li>
             </ul>
         </div>
     </div>
@@ -87,10 +127,25 @@
             <h4>Player1</h4>
             <div class="board" id="board3"></div>
             <ul>
-                <li>4 X 1</li>
-                <li>3 X 2</li>
-                <li>2 X 3</li>
-                <li>1 X 4</li>
+                <li class="ship" id="2_4">
+                    4 X 1&nbsp;
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                </li>
+                <li class="ship" id="2_4">3 X 2
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                </li>
+                <li class="ship" id="2_4">2 X 3
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                </li>
+                <li class="ship" id="2_4">1 X 4
+                    <div class="off cell"></div>
+                </li>
             </ul>            
         </div>
 
@@ -98,10 +153,25 @@
             <h4>Player2</h4>
             <div class="board" id="board4"></div>       
             <ul>
-                <li>4 X 1</li>
-                <li>3 X 2</li>
-                <li>2 X 3</li>
-                <li>1 X 4</li>
+                <li class="ship">
+                    4 X 1&nbsp;
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                        <div class="off cell"></div>
+                </li>
+                <li class="ship">3 X 2
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                </li>
+                <li class="ship">2 X 3
+                    <div class="off cell"></div>
+                    <div class="off cell"></div>
+                </li>
+                <li class="ship">1 X 4
+                    <div class="off cell"></div>
+                </li>
             </ul>
         </div>
     </div>
