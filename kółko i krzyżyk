@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style>
+    html,body{
+        height: 100%;
+
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column ;
+        margin: 3em;
+        padding: 1em;
+    }
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 120px;
+    height: 120px;
+
+}
+.btn{
+    margin: 3px;
+    padding: 5px;
+    background: grey;
+    width: 60px;
+    height: 60px;
+    display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        color: white;
+        font-size: 3em;
+        font-family: sans-serif ;
+}
+#win{
+position: absolute;
+top: 2em;
+left: 50%;
+transform: translateX(-50%);
+}
+#start{
+    position: absolute;
+    transform: translateX(-50%);
+    top: 20%;
+    left: 50%;
+    height: 50%;
+    border: 2px solid red;
+    width: 150px;
+    height: 30px;
+    background: black;
+    color: white;
+    display: flex;
+    align-items:center ;
+    border-radius: 5px;
+    justify-content: center;
+
+
+
+}
+label {
+            text-align: right;
+            display: block;
+            padding: 0.5em 1.5em 0.5em 0;
+            }
+</style>
+
+</head>
+<body>
+    <form>
+      <label>Imię gracza O<input type="text" id="player1" > </label>  
+    <label>Imię gracza X<input type="text" id="player2" > </label>  
+
+
+    </form>
+   <div class="container">
+        <div class="btn" id="0"></div>
+        <div class="btn" id="1"></div>
+        <div class="btn" id="2"></div>
+        <div class="btn" id="3"></div>
+        <div class="btn" id="4"></div>
+        <div class="btn" id="5"></div>
+        <div class="btn" id="6"></div>
+        <div class="btn" id="7"></div>
+        <div class="btn" id="8"></div>
+   </div>
+   <div id="win"></div>
+   <div id="start">START</div>
+   
+   
+     
+
+    
+
+<script>
+   
+   let what =true;
+    let playable=false
+    const start=document.getElementById ('start');
+    let player1="";
+    let player2="";
+    const btns = document.querySelectorAll ('.btn');
+    const win = document.getElementById ('win');
+    
+    
+    btns.forEach(btn=>{
+        btn.addEventListener('click',(event) => kliknij(event))
+    })
+
+    start.addEventListener('click',(event) => klik(event))
+    function klik (event){
+        const player1input =document.getElementById ('player1');
+    const player2input =document.getElementById ('player2');
+        console.log(player1input.value , player2input.value)
+        player1=player1input.value;
+        player2=player2input.value;
+    }
+    
+
+
+function kliknij (event) {
+    const cel =event.target;
+    if(cel.innerText =="" && player1 !=="" && player2 !==""){
+
+    let how = "O"
+        if(what==true){
+    how = "O"
+    }   else{
+        how ="X"
+    }
+
+    what = !what;
+    cel.innerText=how;
+
+    check()
+
+    }
+    else {
+        alert("Wypełnij wymagane pola")
+    }
+}
+ function check(){
+     //wiersze
+  if(btns[0].innerText !== "" 
+  && btns[0].innerText ==btns[1].innerText
+  && btns[1].innerText ==btns[2].innerText){
+    console.log("test" , btns[0].innerText == "O",btns[0].innerText,player1 ,player2   ) 
+    win.innerText="Gratulacje!!! Wygrał " +(btns[0].innerText == "O" ? player1 : player2 )
+    }
+      if(btns[3].innerText !== ""
+      && btns[3].innerText ==btns[4].innerText
+      && btns[3].innerText ==btns[5].innerText){
+        win.innerText="Gratulacje!! !Wygrał " +(btns[3].innerText == "O" ? player1 : player2 )
+  }
+  if(btns[6].innerText !== ""
+  && btns[6].innerText ==btns[7].innerText
+  && btns[6].innerText ==btns[8].innerText){
+    win.innerText="Gratulacje!!! Wygrał " +(btns[6].innerText == "O" ? player1 : player2 )
+  
+  //kolumny
+  }
+  if(btns[0].innerText !== "" 
+  && btns[0].innerText ==btns[3].innerText
+  && btns[3].innerText ==btns[6].innerText){
+    win.innerText="Gratulacje!!! Wygrał " +(btns[0].innerText == "O" ? player1 : player2 )
+    }
+      if(btns[1].innerText !== ""
+      && btns[1].innerText ==btns[4].innerText
+      && btns[4].innerText ==btns[7].innerText){
+        win.innerText="Gratulacje!!! Wygrał " +(btns[1].innerText == "O" ? player1 : player2 )
+  }
+  if(btns[2].innerText !== ""
+  && btns[2].innerText ==btns[5].innerText
+  && btns[5].innerText ==btns[8].innerText){
+    win.innerText="Gratulacje!!! Wygrał " +(btns[2].innerText == "O" ? player1 : player2 )
+  
+ }   
+ //przekątne 
+ if(btns[0].innerText !== "" 
+  && btns[0].innerText ==btns[4].innerText
+  && btns[4].innerText ==btns[8].innerText){
+    win.innerText="Gratulacje!!! Wygrał " +(btns[0].innerText == "O" ? player1 : player2 )
+    }
+      if(btns[2].innerText !== ""
+      && btns[2].innerText ==btns[4].innerText
+      && btns[4].innerText ==btns[6].innerText){
+      win.innerText="Gratulacje!!! Wygrał " +  (btns[2].innerText == "O" ? player1 : player2) 
+  }
+
+}
+
+
+</script>
+</body>
